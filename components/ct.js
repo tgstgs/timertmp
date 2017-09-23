@@ -1,5 +1,5 @@
 // ct.js
-
+/*
 const iv = setInterval(function(){countDown();}, 1000);
 function countDown(){
      var endDate = new Date("Sep 30, 2017");
@@ -14,3 +14,4 @@ function countDown(){
          timer.text = "Closed";
      }
 }
+*/
