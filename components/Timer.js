@@ -5,13 +5,13 @@ import ReactDOM from 'react-dom';
 // import TimerDisplay from './TimerDisplay';
 // import { createContainer } from 'react-meteor-data';
 
-var tmp = "";   
 
 class Timer extends React.Component {
    
     constructor(props) {
         super(props);
-        this.state = { time: 0 };
+        //this.state = { time: 0 };
+        this.state = { time: "" };
     }
     /*
     constructor() {
@@ -28,9 +28,9 @@ class Timer extends React.Component {
         var seconds = parseInt((endDate - Date.now())/(1000))%60;
            
         if (Date.now() < Date.parse(endDate)){
-            time = days + "d, " + hours+ "h, " + minutes + "m, " + seconds + "s";
+            this.state.time = days + "d, " + hours+ "h, " + minutes + "m, " + seconds + "s";
         } else {
-            time = "Closed";
+            this.state.time = "Closed";
         }
    }
     
@@ -38,10 +38,10 @@ class Timer extends React.Component {
 
     componentDidMount() {
         setInterval(() => 
-        this.setState({ time: new Date().toLocaleString() }), 1000);
-        //this.setState({ time: this.countDown() }), 1000);
-        this.tmp = this.state.time;
-        console.log(this.tmp);
+        //this.setState({ time: new Date().toLocaleString() }), 1000);
+        this.setState({ time: this.countDown() }), 1000);
+        //this.tmp = this.state.time;
+        //console.log(this.tmp);
             }
     
     render() {
@@ -51,7 +51,7 @@ class Timer extends React.Component {
                 {/*<p>Timer</p>*/}                
                 {/*Time : { this.state.time } */}
                 
-                Time { this.state.time }
+                Timer { this.state.time }
                 {/*
                 <TimerDisplay time = { this.state.time }/>
                 <TimerDisplay time = 'today'/> */}
