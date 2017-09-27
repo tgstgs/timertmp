@@ -49,14 +49,3 @@ class Timer extends React.Component {
 }
 
 export default Timer;
-
-/*
-Time = new Mongo.Collection('time');
-
-export default createContainer(() => {
-    return {
-        time: Time.find().fetch()
-    }
-},
-Timer);
-*/
