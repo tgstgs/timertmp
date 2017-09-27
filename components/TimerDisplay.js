@@ -1,5 +1,5 @@
 // TimerDisplay.js
-
+/*
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -17,3 +17,4 @@ class TimerDisplay extends React.Component {
 }
 
 export default TimerDisplay;
+*/

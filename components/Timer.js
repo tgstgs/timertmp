@@ -2,39 +2,71 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TimerDisplay from './TimerDisplay';
-import { createContainer } from 'react-meteor-data';
+// import TimerDisplay from './TimerDisplay';
+// import { createContainer } from 'react-meteor-data';
 
+var tmp = "";   
 
 class Timer extends React.Component {
-    // render the child component TimerDisplay instead
-    //constructor(props) {
-      //  super(props);
-        //this.state = { time: 0 };
-    //}
+   
+    constructor(props) {
+        super(props);
+        this.state = { time: 0 };
+    }
+    /*
     constructor() {
         super();
         this.state = { time: new Date().toLocaleString() };
     }
+    */
+
+    countDown(){
+        var endDate = new Date("Sep 30, 2017");
+        var days = parseInt((endDate - Date.now())/(1000*60*60*24));
+        var hours = parseInt((endDate - Date.now())/(1000*60*60))%24;
+        var minutes = parseInt((endDate - Date.now())/(1000*60))%60;
+        var seconds = parseInt((endDate - Date.now())/(1000))%60;
+           
+        if (Date.now() < Date.parse(endDate)){
+            time = days + "d, " + hours+ "h, " + minutes + "m, " + seconds + "s";
+        } else {
+            time = "Closed";
+        }
+   }
+    
+
 
     componentDidMount() {
         setInterval(() => 
-            this.setState({ time: new Date().toLocaleString() }), 1000);
-        }
-
+        this.setState({ time: new Date().toLocaleString() }), 1000);
+        //this.setState({ time: this.countDown() }), 1000);
+        this.tmp = this.state.time;
+        console.log(this.tmp);
+            }
+    
     render() {
+        
         return (
             <div>
-                {/*Time: { this.state.time }*/}
+                {/*<p>Timer</p>*/}                
+                {/*Time : { this.state.time } */}
+                
+                Time { this.state.time }
+                {/*
                 <TimerDisplay time = { this.state.time }/>
-                <TimerDisplay time = 'today'/>
+                <TimerDisplay time = 'today'/> */}
+
             </div> 
         );
     }
+
+    
+
 }
 
-// export default Timer;
+export default Timer;
 
+/*
 Time = new Mongo.Collection('time');
 
 export default createContainer(() => {
@@ -43,4 +75,4 @@ export default createContainer(() => {
     }
 },
 Timer);
-
+*/
