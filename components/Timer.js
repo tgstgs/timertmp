@@ -24,28 +24,21 @@ class Timer extends React.Component {
             this.state.time = "Closed";
         }
    }
-    
-
 
     componentDidMount() {
         setInterval(() => 
         this.setState({ time: new Date().toLocaleString() }), 1000);
-        //this.setState({ time: this.countDown() }), 1000);
+        //this.setState({ time: this.countDown() }), 1000); // So this apparently does not work. Can't figure out
     }
     
     render() {
         
         return (
             <div>
-                                
                 Timer { this.state.time }
-
             </div> 
         );
     }
-
-    
-
 }
 
 export default Timer;
