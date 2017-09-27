@@ -2,26 +2,17 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import TimerDisplay from './TimerDisplay';
-// import { createContainer } from 'react-meteor-data';
-
 
 class Timer extends React.Component {
    
     constructor(props) {
         super(props);
-        //this.state = { time: 0 };
+
         this.state = { time: "" };
     }
-    /*
-    constructor() {
-        super();
-        this.state = { time: new Date().toLocaleString() };
-    }
-    */
 
     countDown(){
-        var endDate = new Date("Sep 30, 2017");
+        var endDate = new Date("Oct 30, 2017");
         var days = parseInt((endDate - Date.now())/(1000*60*60*24));
         var hours = parseInt((endDate - Date.now())/(1000*60*60))%24;
         var minutes = parseInt((endDate - Date.now())/(1000*60))%60;
@@ -38,23 +29,16 @@ class Timer extends React.Component {
 
     componentDidMount() {
         setInterval(() => 
-        //this.setState({ time: new Date().toLocaleString() }), 1000);
-        this.setState({ time: this.countDown() }), 1000);
-        //this.tmp = this.state.time;
-        //console.log(this.tmp);
-            }
+        this.setState({ time: new Date().toLocaleString() }), 1000);
+        //this.setState({ time: this.countDown() }), 1000);
+    }
     
     render() {
         
         return (
             <div>
-                {/*<p>Timer</p>*/}                
-                {/*Time : { this.state.time } */}
-                
+                                
                 Timer { this.state.time }
-                {/*
-                <TimerDisplay time = { this.state.time }/>
-                <TimerDisplay time = 'today'/> */}
 
             </div> 
         );
